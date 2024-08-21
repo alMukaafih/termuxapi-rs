@@ -16,8 +16,7 @@ pub struct AudioInfo {
 /// Get information about audio capabilities.
 pub fn info() -> io::Result<AudioInfo> {
     let out = run_api_cmd("AudioInfo")?;
-    let i: AudioInfo = serde_json::from_str(&out).unwrap();
-    Ok(i)
+    Ok(serde_json::from_str(&out).unwrap())
 }
 
 #[test]
